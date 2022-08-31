@@ -63,6 +63,8 @@ try:
         """
         cmd = "getprop ro.board.platform;"
         res = run_shell_cmd(cmd)
+        # DEBUG HARDCODE
+        return ChipsetType.QUALCOMM
         if res.startswith(b"mt"):
             return ChipsetType.MTK
         elif res.startswith(b"msm") or res.startswith(b"mdm") or res.startswith(b"sdm") or res.startswith(b"kona") or res.startswith(b"lito"):
