@@ -481,19 +481,19 @@ _decode_by_fmt(const Fmt fmt[], int n_fmt,
             }
 
             case QCDM_TIMESTAMP: {
-                const double PER_SECOND = 52428800.0;
-                const double PER_USECOND = 52428800.0 / 1.0e6;
+                //const double PER_SECOND = 52428800.0;
+                //const double PER_USECOND = 52428800.0 / 1.0e6;
                 assert(fmt[i].len == 8);
                 // Convert to a Python long integer object
                 unsigned long long iiii = *((unsigned long long *) p);
-                int seconds = int(double(iiii) / PER_SECOND);
-                int useconds = (double(iiii) / PER_USECOND) - double(seconds) * 1.0e6;
-                PyObject *epoch = PyDateTime_FromDateAndTime(1980, 1, 6, 0, 0, 0, 0);
-                PyObject *delta = PyDelta_FromDSU(0, seconds, useconds);
-                decoded = PyNumber_Add(epoch, delta);
+                //int seconds = int(double(iiii) / PER_SECOND);
+                //int useconds = (double(iiii) / PER_USECOND) - double(seconds) * 1.0e6;
+                //PyObject *epoch = PyDateTime_FromDateAndTime(1980, 1, 6, 0, 0, 0, 0);
+                //PyObject *delta = PyDelta_FromDSU(0, seconds, useconds);
+                decoded = PyLong_FromUnsignedLongLong(iiii);
                 n_consumed += fmt[i].len;
-                Py_DECREF(epoch);
-                Py_DECREF(delta);
+                //Py_DECREF(epoch);
+                //Py_DECREF(delta);
                 break;
             }
 
