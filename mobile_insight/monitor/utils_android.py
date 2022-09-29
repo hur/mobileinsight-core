@@ -50,6 +50,7 @@ def get_chipset_type():
     MediaTek: [ro.board.platform]: [mt6735m]
     Qualcomm: [ro.board.platform]: [msm8084]
     """
+    return ChipsetType.QUALCOMM
     cmd = "getprop ro.board.platform;"
     res = run_shell_cmd(cmd)
     if res.startswith(b"mt"):
