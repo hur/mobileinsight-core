@@ -74,7 +74,7 @@ try:
             return None
 
 
-    chipset_type = get_chipset_type()
+    chipset_type = ChipsetType.QUALCOMM
     print("Chipset Type ID: ", chipset_type)
 
     if chipset_type == ChipsetType.QUALCOMM:
