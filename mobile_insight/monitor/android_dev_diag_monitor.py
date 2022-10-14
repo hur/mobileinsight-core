@@ -489,6 +489,7 @@ class AndroidDevDiagMonitor(Monitor):
                         s)
                     # self.log_info("After chproc.process(s)")
                     if ret_msg_type == ChronicleProcessor.TYPE_LOG:
+                        self.log_info(ret_ts, ret_payload)
                         if ret_ts:
                             self._last_diag_revealer_ts = ret_ts
                         if ret_payload:
